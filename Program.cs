@@ -1,15 +1,30 @@
-﻿namespace Personalregister
+﻿namespace EmployeeList
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Here is registration for employee of K restaurant");
-            Console.WriteLine("enter employee's full name: ");
-            string fullname = Console.ReadLine();
-            Console.WriteLine("enter employee's monthly salary: ");
-            string salary = Console.ReadLine();
-            Console.WriteLine($"{fullname} has sucessfully registered with monthly salary {salary}");
+            List<Employee> employees = new List<Employee>();
+
+            while (true)
+            {
+                Console.WriteLine("Enter employee name: ");
+                string name = Console.ReadLine();
+
+                Console.WriteLine("Enter employee salary: ");
+                double salary = Convert.ToDouble(Console.ReadLine());
+
+                employees.Add(new Employee()
+                {
+                    Name = name,
+                    Salary = salary
+                }
+                );
+                Console.WriteLine("New employee registered sucessfully!\n");
+                Console.WriteLine($"Name: {name}, Salary: {salary}");
+                break;
+
+            }
         }
     }
 }
